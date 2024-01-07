@@ -1,10 +1,10 @@
 import { Box, Flex, Textarea } from '@chakra-ui/react';
 import {memo} from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Control } from '../../types/type';
+import { Control, IPost } from '../../types/type';
 
 function DescInput():JSX.Element {
- const {control} = useFormContext();
+ const {control} = useFormContext<IPost>();
   return (
     <Flex
      margin='auto' w='90%'

@@ -25,5 +25,8 @@ _id:string
 export interface Iid {
   state:state
 }
-
+export interface context {
+  remove:(id:string)=>()=>void,
+  update:(item:IPost)=>()=>void
+}
 export type Control<T extends string> = ControllerRenderProps<FieldValues,T>;

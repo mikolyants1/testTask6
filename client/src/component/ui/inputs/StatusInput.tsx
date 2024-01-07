@@ -1,11 +1,11 @@
 import { Box, Input } from '@chakra-ui/react';
 import {memo} from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { Control } from '../../types/type';
+import { Control, IPost } from '../../types/type';
 import { FlexInputBlock } from '../../style/style';
 
 function StatusInput():JSX.Element {
-    const {control} = useFormContext();
+    const {control} = useFormContext<IPost>();
   return (
     <FlexInputBlock>
       <Box w={40}
