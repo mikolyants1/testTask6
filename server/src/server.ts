@@ -12,6 +12,6 @@ app.use(cors());
 
 app.use('/posts',router);
 
-app.listen(5000,()=>{
+app.listen(PORT,()=>{
  console.log(`server listen on ${PORT}`)
 })
