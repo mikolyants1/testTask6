@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { body, validationResult } from "express-validator";
+import { Result, ValidationError, body, validationResult } from "express-validator";
 
 export const valid = [
     body("title").notEmpty().isLength({min:1,max:20}),
@@ -8,7 +8,7 @@ export const valid = [
 ]
 
 export function Validator(req:Request,res:Response,next:NextFunction):void{
-      const error = validationResult(req);
+      const error:Result<ValidationError> = validationResult(req);
       if (!error.isEmpty()){
         res.status(400).json({
             err:error.array()
