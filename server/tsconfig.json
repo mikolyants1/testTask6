@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "esnext",
+      "outDir": "dist",
+      "strict": true,
+      "moduleResolution": "Node",
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*.ts","tests/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
