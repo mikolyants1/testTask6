@@ -3,6 +3,7 @@ import { Flex } from "@chakra-ui/react";
 
 function Error():JSX.Element {
  const [err,setErr] = useState<string>('');
+
  useEffect(():void=>{
   setInterval(():void => {
    setTimeout(():void=>setErr(''),0);
@@ -11,6 +12,7 @@ function Error():JSX.Element {
    setTimeout(():void=>setErr('...'),600);
    }, 800);
   },[]);
+  
     return (
          <Flex
           width ='100%'

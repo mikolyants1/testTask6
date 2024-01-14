@@ -1,19 +1,19 @@
-import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query"
+import { QueryClient, UseMutationResult, useMutation, useQueryClient } from "@tanstack/react-query"
 import { NavigateFunction, useLocation, useNavigate, useParams } from "react-router-dom";
 import addTodo from "../../helpers/query/addTodo";
 import chanTodo from "../../helpers/query/chanTodo";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { Box,} from "@chakra-ui/react";
 import TitleInput from "../../ui/inputs/TitleInput";
 import StatusInput from "../../ui/inputs/StatusInput";
 import DescInput from "../../ui/inputs/DescInput";
 import { FlexBlock } from "../../style/style";
-import { memo, useCallback } from "react";
+import { useCallback } from "react";
 import { IPost, Iid, putState, state } from "../../types/type";
 import InputButton from "../../ui/buttons/InputButton";
+import PersonWrapper from "../../ui/blocks/wrappers/PersonWrapper";
 
 function Person():JSX.Element {
- const id:string = String(useParams().id);
+ const id:string = `${useParams().id}`;
  const {state}:Iid = useLocation();
  const navigate:NavigateFunction = useNavigate();
  const {invalidateQueries}:QueryClient = useQueryClient();
@@ -24,11 +24,13 @@ function Person():JSX.Element {
     description:state.description
     }
  });
- const {mutate:add} = useMutation({
+ const {mutate:add}:UseMutationResult<
+  unknown,IPost[],state> = useMutation({
   mutationFn:(body:state)=>addTodo(body),
   onSuccess:()=>invalidateQueries({queryKey:['todos']})
  });
- const {mutate:chan} = useMutation({
+ const {mutate:chan}:UseMutationResult<
+  unknown,IPost[],putState> = useMutation({
   mutationFn:(body:putState)=>chanTodo(body),
   onSuccess:()=>invalidateQueries({queryKey:['todos']})
  });
@@ -41,13 +43,7 @@ function Person():JSX.Element {
     
   return (
     <FormProvider {...methods}>
-      <Box p='15px 0'
-        m='80px auto'
-        w='60%' minW={300}
-        minH={370} bg='rgb(100,100,100)'
-        boxSizing="border-box"
-        borderRadius={20}
-         opacity={0.8}>
+      <PersonWrapper>
         <FlexBlock>
           <TitleInput />
           <StatusInput />
@@ -57,9 +53,9 @@ function Person():JSX.Element {
          id={id}
          submit={submit}
         />
-      </Box>
+      </PersonWrapper>
     </FormProvider>
   );
 };
 
-export default memo(Person)
+export default Person

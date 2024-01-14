@@ -7,7 +7,7 @@ export interface IPost {
     description:string
 }
 
-export interface query{
+export interface datas {
   isError:boolean,
   isLoading:boolean,
   data:unknown
@@ -22,6 +22,9 @@ export interface putState extends state {
 _id:string
 }
 
+export interface child {
+  children:JSX.Element[]|false
+}
 export interface Iid {
   state:state
 }
@@ -29,4 +32,5 @@ export interface context {
   remove:(id:string)=>()=>void,
   update:(item:IPost)=>()=>void
 }
+
 export type Control<T extends string> = ControllerRenderProps<FieldValues,T>;

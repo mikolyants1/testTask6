@@ -10,7 +10,7 @@ const query:QueryClient = new QueryClient({
       refetchOnWindowFocus:false,
     }
   }
-})
+});
 
 const router = createBrowserRouter([
   {

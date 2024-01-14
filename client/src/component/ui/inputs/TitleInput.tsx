@@ -5,7 +5,7 @@ import { Control, IPost } from '../../types/type';
 import { FlexInputBlock } from '../../style/style';
 
 function TitleInput():JSX.Element {
-    const {control} = useFormContext<IPost>();
+ const {control} = useFormContext<IPost>();
   return (
      <FlexInputBlock>
         <Box w={40}
@@ -33,4 +33,4 @@ function TitleInput():JSX.Element {
   )
 }
 
-export default memo(TitleInput)
+export default memo(TitleInput);

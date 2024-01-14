@@ -5,7 +5,7 @@ import { Control, IPost } from '../../types/type';
 import { FlexInputBlock } from '../../style/style';
 
 function StatusInput():JSX.Element {
-    const {control} = useFormContext<IPost>();
+ const {control} = useFormContext<IPost>();
   return (
     <FlexInputBlock>
       <Box w={40}

@@ -8,7 +8,7 @@ interface props {
     id:string
 }
 function InputButton({id,submit}:props):JSX.Element {
-    const {handleSubmit} = useFormContext<IPost>()
+  const {handleSubmit} = useFormContext<IPost>();
   return (
     <Flex w='90%'
      m='20px auto'

@@ -3,7 +3,7 @@ import { useEffect, useState ,memo } from "react";
 
   function Loader():JSX.Element {
     const [spin,setSpin] = useState<number>(0);
-    
+
      useEffect(():void=>{
        setInterval(():void => {
         setSpin((prev:number)=>(
@@ -15,9 +15,7 @@ import { useEffect, useState ,memo } from "react";
        return (
          <Flex w='100%'
           justifyContent='center'>
-           <Box 
-            width='60px'
-            height='60px'
+           <Box w='60px' h='60px'
             borderRadius='50%'
             borderLeft='15px solid transparent'
             borderTop='15px solid white'
